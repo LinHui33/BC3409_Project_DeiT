@@ -3,4 +3,4 @@ transformers
 gunicorn
 numpy
 flask
-Pillow
+torchvision==0.12.0
