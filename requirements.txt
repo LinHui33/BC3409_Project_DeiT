@@ -1,4 +1,4 @@
-torch==1.10.0
+torch==1.10.1
 gunicorn
 numpy
 flask
