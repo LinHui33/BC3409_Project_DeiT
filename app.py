@@ -1,21 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[1]:
-
-
 import numpy as np
 import torch
 from PIL import Image
-import torch
-import timm
-import requests
 import torchvision.transforms as T
 from flask import Flask, render_template, request
 from werkzeug.utils import secure_filename
-
-
-# In[8]:
 
 
 app = Flask(__name__)
@@ -47,10 +35,6 @@ def upload_file():
         return(render_template("index.html", result=str(pred)))
     else:
         return(render_template("index.html", result="2"))
-
-
-# In[9]:
-
 
 if __name__ == "__main__":
     app.run()
