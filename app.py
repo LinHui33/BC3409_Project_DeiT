@@ -7,7 +7,23 @@ from werkzeug.utils import secure_filename
 
 
 app = Flask(__name__)
-@app.route('/', methods=['GET', 'POST'])
+
+@app.route("/", methods = ['POST','GET'])
+def login():
+    if request.method == "POST":
+        username = request.form['username']
+        password = request.form['password']
+        if username == "user1" and password == "user1":
+            return  render_template("Home.html")
+        else:
+            return render_template("login_fail.html")
+    return render_template("login.html")
+@app.route('/home', methods=['GET', 'POST'])
+
+def home():
+    return render_template("Home.html")
+
+@app.route('/main', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
         file = request.files['file']
@@ -32,10 +48,13 @@ def upload_file():
         out = model(img)
         clsidx = torch.argmax(out)
         pred = clsidx.item()
-        return(render_template("index.html", result=str(pred)))
+        if pred == 0:
+            s = "Covid"
+        else:
+            s = "Normal"
+        return(render_template("main.html", result=str(s)))
     else:
-        return(render_template("index.html", result="2"))
+        return(render_template("main.html", result="pending"))
 
 if __name__ == "__main__":
     app.run()
-
