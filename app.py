@@ -58,7 +58,7 @@ def upload_file():
         return(render_template("main.html", result="pending"))
 
 @app.route('/CNN', methods=['GET', 'POST'])
-def upload_file():
+def CNN():
     if request.method == 'POST':
         file = request.files['file']
         filename = secure_filename(file.filename)
