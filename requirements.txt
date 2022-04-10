@@ -6,3 +6,5 @@ Pillow
 torchvision
 keras
 Keras-Preprocessing
+tensorflow
+tensorflow-cpu
