@@ -4,6 +4,3 @@ numpy
 flask
 Pillow
 torchvision
-keras
-Keras-Preprocessing
-tensorflow-cpu
