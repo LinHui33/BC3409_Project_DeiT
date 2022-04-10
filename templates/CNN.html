@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN</title>
+</head>
+<!-- Bootstrap CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#">XYZ Hospital</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link  text-white" aria-current="page" href="/home">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="/main">Transformer</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active text-white" href="/CNN">CNN</a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class = 'container mt-4'>
+        <div class = 'row'>
+            <h2 class = 'text-center mb-4'>Pending XRay Results</h2>
+            <form method="post" action = "/main" enctype="multipart/form-data">
+              
+     
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Patient ID</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">XRay</th>
+                            <th scope="col">Predicted Outcome</th>
+    
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr name = 'row'>
+                            <th scope="row">1</th>
+                            <td>39</td>
+                            <td>Male</td>
+                            <td>
+                                <div class="mb-3">
+                                
+                                <input class="form-control" type="file" name="file">
+                                
+                                
+                                </div>
+                            </td>
+                            <td id = 'result'>{{result}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <input type="submit" class="btn btn-primary" value="Upload">
+            </form>
+        </div>
+    </div>
+</body>
+
+<script>
+    let result = document.getElementById("result")
+    let rows = document.getElementsByName("row")
+    
+        if (result.innerHTML == "Covid") {
+            for(row of rows){
+                row.classList.value = 'table-danger'
+            }
+           
+        } 
+        else if (result.innerHTML == 'Normal'){
+            for(row of rows){
+                row.classList.value = 'table-success'
+            }
+        }
+    
+    
+</script>
+</html>
